@@ -8,7 +8,7 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
+      - name: List Files and echo env variables
         run: |
           pwd
           ls -a
