@@ -1,13 +1,27 @@
 name: Actions Workflow
 
 on:
-  repository_dispatch:
-    types:
-      - build
+  push:
+    branches:
+      - non-existent
+      - 'feature/*'    # matches feature/anything  | doesn't match feature/something/anything
+      - 'feature/**'   # matches everything, also feature/something/anything
+      - '!feature/featC'
+    paths:
+      - '**.js'
+#    paths-ignore:
+#    tags:
+#    tags-ignore:
+#    branches-ignore:
+# repository_dispatch:
+#    types:
+#      - build
 #  push:
 #  schedule:
 #    - cron: "0/5 * * * *"
   pull_request:
+    branches:
+      - master
     types:
       - closed
       - assigned
@@ -21,7 +35,6 @@ jobs:
       - name: Dispatch Payload
         run: |
           echo "${{ github.event.client_payload.env }}"
-          echo "${{ github.event.sender }}"
       - name: List Files and echo env variables
         run: |
           pwd
