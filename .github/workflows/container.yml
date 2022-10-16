@@ -3,9 +3,6 @@ name: Container
 on: push
 
 jobs:
-  docker-steps:
-    runs-on: ubuntu-latest
-    container:
   docker-compose:
     runs-on: ubuntu-latest
     services:
