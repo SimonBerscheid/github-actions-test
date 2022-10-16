@@ -21,6 +21,7 @@ jobs:
       - name: Dispatch Payload
         run: |
           echo "${{ github.event.client_payload.env }}"
+          echo "${{ github.event.sender }}"
       - name: List Files and echo env variables
         run: |
           pwd
