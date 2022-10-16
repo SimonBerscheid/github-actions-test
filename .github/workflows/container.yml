@@ -3,6 +3,23 @@ name: Container
 on: push
 
 jobs:
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image: node:16-alpine3.15
+    steps:
+      - name: Log node version
+        run: node -v
+      - name: Step with docker
+        uses: docker://node:14.20.1-alpine
+        with:
+          entrypoint: '/bin/echo'
+          args: Hello World
+      - name: Log Node Version
+        uses: docker://node:14.20.1-alpine
+        with:
+          entrypoint: '/usr/local/bin/node'
+          args: -v
   docker-compose:
     runs-on: ubuntu-latest
     services:
