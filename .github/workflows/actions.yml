@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch Payload
-      - run: |
+        run: |
           echo "${{ github.event.client_payload.env }}"
       - name: List Files and echo env variables
         run: |
