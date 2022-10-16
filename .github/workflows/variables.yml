@@ -39,9 +39,9 @@ jobs:
           ls -a
           echo $RANDOM >> random.txt
           ls -a
-          git add -A
-          git commit -m "Added random file to Repo"
-          git push
+#          git add -A
+#          git commit -m "Added random file to Repo"
+#          git push
       - name: Log ENV variables
         env:
           STEP_ENV: Available to only this step
