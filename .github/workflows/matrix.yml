@@ -5,17 +5,17 @@ jobs:
   node-version:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-        node_version: [6, 8, 10]
+        os: [macos-latest,ubuntu-latest,windows-latest]
+        node_version: [6,8,10]
+        include:
+          - os: ubuntu_latest
+            node_version: 8
+            is_ubuntu_8: "true"
         exclude:
           - os: ubuntu-latest
             node_version: 6
           - os: macos-latest
             node_version: 8
-        include:
-          - os: ubuntu_latest
-            node_version: 8
-            is_ubuntu_8: "true"
       fail-fast: true
       max-parallel: 3
     runs-on: ${{ matrix.os }}
