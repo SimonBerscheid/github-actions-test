@@ -18,7 +18,7 @@ jobs:
           gpg --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.json my_secret.json.gpg
       - name: Print file content
         run: |
-          cat $HOME/my_secret.json
+          cat $HOME/secret.json
   log-env:
     runs-on: ubuntu-latest
     env:

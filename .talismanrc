@@ -1,4 +1,4 @@
 fileignoreconfig:
-- filename: .github/workflows/env.yml
-  checksum: 65b54a0a30ccb14671c47694b710a8451cd61e15f848ba682c284273c801b81f
-version: ""
+- filename: .github/workflows/variables.yml
+  checksum: 5131d6368e96936f50e323d8025927c9fc7c58e983c4d7a08ce720229a9c9c37
+
