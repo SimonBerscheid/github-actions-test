@@ -7,6 +7,18 @@ env:
   WF_ENV: ${{ secrets.WF_ENV }}
 
 jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Decrypt File
+        env:
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+        run: |
+          gpg --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.json my_secret.json.gpg
+      - name: Print file content
+        run: |
+          cat $HOME/my_secret.json
   log-env:
     runs-on: ubuntu-latest
     env:
@@ -23,7 +35,7 @@ jobs:
           git fetch
           git checkout master
           git branch --set-upstream-to=origin/master
-          git pullg
+          git pull
           ls -a
           echo $RANDOM >> random.txt
           ls -a
